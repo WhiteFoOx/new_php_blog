@@ -10,8 +10,4 @@ return [
         'controller' => 'account',
         'action' => 'login',
     ],
-    'public_html/news/show' => [
-        'controller' => 'news',
-        'action' => 'show',
-        ],
 ];
