@@ -6,14 +6,6 @@ return [
         'controller' => 'main',
         'action' => 'index',
     ],
-    'public_html/about' => [
-        'controller' => 'main',
-        'action' => 'about',
-    ],
-    'public_html/contact' => [
-        'controller' => 'main',
-        'action' => 'contact',
-    ],
     'public_html/post/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'post',

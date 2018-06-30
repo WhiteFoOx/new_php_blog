@@ -13,14 +13,14 @@ class AdminController extends Controller {
         
     public function loginAction() {   
         if(isset($_SESSION['admin'])){
-            $this->view->redirect('public_html/admin/add');
+            $this->view->redirect('public_html/admin/posts');
         }
         if(!empty($_POST)) {
             if(!$this->model->loginValidate($_POST)) {
                 $this->view->message('error', $this->model->error);
             }
             $_SESSION['admin'] = true;
-            $this->view->location('public_html/admin/add');
+            $this->view->location('public_html/admin/posts');
         }
         $this->view->render('Вход');
     }
@@ -34,7 +34,7 @@ class AdminController extends Controller {
             if(!$id){
                $this->view->message('success', 'Ошибка обработки запроса'); 
             }
-            //Не работает загрузка картинки
+
             if(!empty($_FILES['img']['tmp_name'])){
                 $this->model->postUploadImage($_FILES['img']['tmp_name'], $id);
             }
@@ -44,18 +44,27 @@ class AdminController extends Controller {
     }
         
     public function editAction() {
+        if(!$this->model->isPostExists($this->route['id'])) {
+            $this->view->errorCode(404);
+        }
         if(!empty($_POST)) {
             if(!$this->model->postValidate($_POST, 'edit')) {
                 $this->view->message('error', $this->model->error);
             }
             $this->view->message('success', 'ok');
         }
-	$this->view->render('Изменение поста');
+        $vars = [
+            'data' => $this->model->postData($this->route['id'])[0],
+        ];
+	$this->view->render('Изменение поста', $vars);
     }
         
     public function deleteAction() {
-        debug($this->route);
-        exit('Удаление поста');
+        if(!$this->model->isPostExists($this->route['id'])) {
+            $this->view->errorCode(404);
+        }
+        $this->model->postDelete($this->route['id']);
+        $this->view->redirect('public_html/admin/posts');
     }
         
     public function logoutAction() {

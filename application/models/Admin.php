@@ -44,7 +44,30 @@ class Admin extends Model {
         $this->db->query('INSERT INTO posts VALUES (:id, :name, :description, :text)', $params);
         return $this->db->lastInsertId();
     }
+    
     public function postUploadImage($path, $id){
-        move_uploaded_file($path, 'public_html/public/materials/'.$id.'.jpg');
+        move_uploaded_file($path, 'public/materials/'.$id.'.jpg');
+    }
+    
+    public function isPostExists($id) {
+        $params = [
+            'id' => $id,
+        ];
+        return $this->db->column('SELECT id FROM posts WHERE id = :id', $params);
+    }
+    
+    public function postDelete($id) {
+        $params = [
+            'id' => $id,
+        ];
+        $this->db->query('DELETE FROM posts WHERE id = :id', $params);
+        //unlink('public/materials/'.$id.'.jpg');
+    }
+    
+    public function postData($id) {
+        $params = [
+          'id' => $id,  
+        ];
+        return $this->db->row('SELECT * FROM posts WHERE id = :id', $params);
     }
 }
