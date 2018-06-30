@@ -1,3 +1,2 @@
-<p>GLAVNAYA STRANICA</p>
-
+<p>Главная страница</p>
 

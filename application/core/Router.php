@@ -2,6 +2,8 @@
 
 namespace application\core;
 
+use application\core\View;
+
 class Router {
     
     protected $routes = [];
@@ -40,13 +42,13 @@ class Router {
                     $controller = new $path($this->params);
                     $controller->$action();
                 } else {
-                    echo 'Action not found: '.$action;
+                    View::errorCode(404);
                 }
             } else {
-                echo 'Controller not found: '.$path;
+                View::errorCode(404);
             }
         } else{
-            echo 'NO';
+            View::errorCode(404);
         }
         
             

@@ -1,9 +1,9 @@
 <h3>VHOD</h3>
-<form>
+<form action="/public_html/account/login" method="POST">
     <p>Login</p>
-    <p><input type="text"></p>
+    <p><input type="text" name="login"></p>
     <p>Password</p>
-    <p><input type="text"></p>
-    <b><button>Login</button></b>
+    <p><input type="text" name="password"></p>
+    <b><button type="submit" name="enter">Login</button></b>
 </form>
 
