@@ -2,11 +2,11 @@
 
 return [
     
-    'public_html' => [
+    'new_php_blog' => [
         'controller' => 'main',
         'action' => 'index',
     ],
-    'public_html/account/login' => [
+    'new_php_blog/account/login' => [
         'controller' => 'account',
         'action' => 'login',
     ],
