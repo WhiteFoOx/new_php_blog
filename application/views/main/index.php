@@ -18,7 +18,7 @@
             <?php else: ?>
                 <?php foreach ($list as $val): ?>
                     <div class="post-preview">
-                        <img src='/new_php_blog/public/materials/<?php echo $val['id']; ?>.jpg' width="150" height="100" alt="Фоточка">
+                        <img src='/new_php_blog/public/materials/<?php echo $val['id']; ?>.jpg' width="150" height="100" onerror="this.style.display='none'" alt="Фоточка">
                         <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
                             <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
                         </a>
