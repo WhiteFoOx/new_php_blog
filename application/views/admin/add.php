@@ -5,7 +5,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-sm-4">
-                        <form action="/public_html/admin/add" method="post">
+                        <form action="/new_php_blog/admin/add" method="post">
                             <div class="form-group">
                                 <label>Название</label>
                                 <input class="form-control" type="text" name="name">
@@ -16,7 +16,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Текст</label>
-                                <textarea class="form-control" rows="3" name="text"></textarea>
+                                <textarea class="form-control" rows="5" name="text"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Изображение</label>

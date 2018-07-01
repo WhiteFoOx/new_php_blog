@@ -13,12 +13,14 @@
                                     <th>Название</th>
                                     <th>Редактировать</th>
                                     <th>Удалить</th>
+                                    <th>Перейти</th>
                                 </tr>
                                 <?php foreach ($list as $val): ?>
                                     <tr>
                                         <td><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></td>
-                                        <td><a href="/public_html/admin/edit/<?php echo $val['id']; ?>" class="btn btn-primary">Редактировать</a></td>
-                                        <td><a href="/public_html/admin/delete/<?php echo $val['id']; ?>" class="btn btn-danger">Удалить</a></td>
+                                        <td><a href="/new_php_blog/admin/edit/<?php echo $val['id']; ?>" class="btn btn-primary">Редактировать</a></td>
+                                        <td><a href="/new_php_blog/admin/delete/<?php echo $val['id']; ?>" class="btn btn-danger">Удалить</a></td>
+                                        <td><a href="/new_php_blog/post/<?php echo $val['id']; ?>" class="btn btn-success">Перейти</a></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </table>

@@ -4,28 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?php echo $title; ?></title>
-        <link href="/public_html/public/styles/bootstrap.css" rel="stylesheet">
-        <link href="/public_html/public/styles/main.css" rel="stylesheet">
-        <link href="/public_html/public/styles/font-awesome.css" rel="stylesheet">
-        <script src="/public_html/public/scripts/jquery.js"></script>
-        <script src="/public_html/public/scripts/form.js"></script>
-        <script src="/public_html/public/scripts/popper.js"></script>
-        <script src="/public_html/public/scripts/bootstrap.js"></script>
+        <link href="/new_php_blog/public/styles/bootstrap.css" rel="stylesheet">
+        <link href="/new_php_blog/public/styles/main.css" rel="stylesheet">
+        <link href="/new_php_blog/public/styles/font-awesome.css" rel="stylesheet">
+        <script src="/new_php_blog/public/scripts/jquery.js"></script>
+        <script src="/new_php_blog/public/scripts/form.js"></script>
+        <script src="/new_php_blog/public/scripts/popper.js"></script>
+        <script src="/new_php_blog/public/scripts/bootstrap.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/public_html/">Главная страница</a>
+                <a class="navbar-brand" href="/new_php_blog/">Главная страница</a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/public_html/posts">Посты</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/public_html/admin/login">Вход</a>
+                            <a class="nav-link" href="/new_php_blog/admin/login">Вход</a>
                         </li>
                     </ul>
                 </div>

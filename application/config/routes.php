@@ -2,36 +2,44 @@
 
 return [
     //MainController
-    'public_html' => [
+    'new_php_blog' => [
         'controller' => 'main',
         'action' => 'index',
     ],
-    'public_html/post/{id:\d+}' => [
+    'new_php_blog/main/index/{page:\d+}' => [
+        'controller' => 'main',
+        'action' => 'index',
+    ],
+    'new_php_blog/post/{id:\d+}' => [
         'controller' => 'main',
         'action' => 'post',
     ],
     //AdminController
-    'public_html/admin/login' => [
+    'new_php_blog/admin/login' => [
         'controller' => 'admin',
         'action' => 'login',
     ],
-    'public_html/admin/logout' => [
+    'new_php_blog/admin/logout' => [
         'controller' => 'admin',
         'action' => 'logout',
     ],
-    'public_html/admin/add' => [
+    'new_php_blog/admin/add' => [
         'controller' => 'admin',
         'action' => 'add',
     ],
-    'public_html/admin/edit/{id:\d+}' => [
+    'new_php_blog/admin/edit/{id:\d+}' => [
         'controller' => 'admin',
         'action' => 'edit',
     ],
-    'public_html/admin/delete/{id:\d+}' => [
+    'new_php_blog/admin/delete/{id:\d+}' => [
         'controller' => 'admin',
         'action' => 'delete',
     ],
-    'public_html/admin/posts' => [
+    'new_php_blog/admin/posts/{page:\d+}' => [
+        'controller' => 'admin',
+        'action' => 'posts',
+    ],
+    'new_php_blog/admin/posts' => [
         'controller' => 'admin',
         'action' => 'posts',
     ],

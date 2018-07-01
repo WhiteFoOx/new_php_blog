@@ -1,10 +1,10 @@
-<header class="masthead" style="background-image: url('/public_html/public/images/home-bg.jpg')">
+<header class="masthead" style="background-image: url('/new_php_blog/public/images/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="site-heading">
-                    <h1>Гордеев Павел</h1>
-                    <span class="subheading">простой блог на php</span>
+                    <h1>Простой блог на php</h1>
+                    <span class="subheading">Гордеев Павел</span>
                 </div>
             </div>
         </div>
@@ -18,16 +18,18 @@
             <?php else: ?>
                 <?php foreach ($list as $val): ?>
                     <div class="post-preview">
-                        <a href="/public_html/post/<?php echo $val['id']; ?>">
+                        <img src='/new_php_blog/public/materials/<?php echo $val['id']; ?>.jpg' width="150" height="100" alt="Фоточка">
+                        <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
                             <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
-                            <h5 class="post-subtitle"><?php echo htmlspecialchars($val['description'], ENT_QUOTES); ?></h5>
                         </a>
+                            <h5 class="post-subtitle"><?php echo htmlspecialchars(substr($val['text'], 0, 300), ENT_QUOTES); ?></h5>
+                        
                         <p class="post-meta">Идентфикатор этого поста <?php echo $val['id']; ?></p>
                     </div>
                     <hr>
                 <?php endforeach; ?>
                 <div class="clearfix">
-                    <?php echo $pagination; ?>
+                <?php echo $pagination; ?>
                 </div>
             <?php endif; ?>
         </div>

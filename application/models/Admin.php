@@ -61,7 +61,7 @@ class Admin extends Model {
             'id' => $id,
         ];
         $this->db->query('DELETE FROM posts WHERE id = :id', $params);
-        //unlink('public/materials/'.$id.'.jpg');
+        unlink('public/materials/'.$id.'.jpg');
     }
     
     public function postData($id) {
@@ -69,5 +69,15 @@ class Admin extends Model {
           'id' => $id,  
         ];
         return $this->db->row('SELECT * FROM posts WHERE id = :id', $params);
+    }
+    
+    public function postEdit($post, $id) {
+       $params = [
+          'id' => $id,   
+          'name' => $post['name'],
+          'description' => $post['description'],
+          'text' => $post['text'],
+        ];
+        $this->db->query('UPDATE posts SET name = :name, description = :description, text = :text WHERE id = :id', $params); 
     }
 }

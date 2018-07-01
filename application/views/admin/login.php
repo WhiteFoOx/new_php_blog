@@ -2,7 +2,7 @@
     <div class="card card-login mx-auto mt-5">
         <div class="card-header">Вход в панель Администратора</div>
         <div class="card-body">
-            <form action="/public_html/admin/login" method="post">
+            <form action="/new_php_blog/admin/login" method="post">
                 <div class="form-group">
                     <label>Логин</label>
                     <input class="form-control" type="text" name="login">
@@ -12,6 +12,7 @@
                     <input class="form-control" type="password" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Вход</button>
+                <a href="/new_php_blog/">Перейти на главную</a>
             </form>
         </div>
     </div>
