@@ -69,6 +69,7 @@ class Admin extends Model {
         $params = [
           'id' => $id,  
         ];
+        $this->db->query('UPDATE posts SET views = views + 1 WHERE id = :id', $params);
         return $this->db->row('SELECT * FROM posts WHERE id = :id', $params);
     }
     

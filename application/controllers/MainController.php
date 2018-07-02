@@ -26,7 +26,7 @@ class MainController extends Controller {
             $vars = [
                 'data' => $adminModel->postData($this->route['id'])[0],
             ];
-            $this->view->render('Посты', $vars);
+            $this->view->render('Пост', $vars);
 	}
         
 
