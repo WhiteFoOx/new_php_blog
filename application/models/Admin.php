@@ -11,7 +11,7 @@ class Admin extends Model {
     public function loginValidate($post) {
         $config = require 'application/config/admin.php';
         if($config['login'] != $post['login'] or $config['password'] != $post['password']){
-            $this->error = 'Login or passwrod incorrect';
+            $this->error = 'Login or password incorrect';
             return false;
         }
         return true;
@@ -27,10 +27,10 @@ class Admin extends Model {
         } elseif($descriptionLen < 3 or $descriptionLen > 100){
             $this->error = 'Описание должно содержать от 3 до 100 символов';
             return false;
-        } elseif($textLen < 10 or $textLen > 5000){
+        } /*elseif($textLen < 10 or $textLen > 5000){
             $this->error = 'Текст должен содержать от 10 до 5000 символов';
             return false;
-        }
+        }*/
         return true;
     }
     
@@ -40,8 +40,9 @@ class Admin extends Model {
           'name' => $post['name'],
           'description' => $post['description'],
           'text' => $post['text'],
+          'date' => date('Y-m-d'),
         ];
-        $this->db->query('INSERT INTO posts VALUES (:id, :name, :description, :text)', $params);
+        $this->db->query('INSERT INTO posts (id, name, description, text, date) VALUES (:id, :name, :description, :text, :date)', $params);
         return $this->db->lastInsertId();
     }
     

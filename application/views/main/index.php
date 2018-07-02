@@ -22,7 +22,7 @@
                         <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
                             <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
                         </a>
-                            <h5 class="post-subtitle"><?php echo htmlspecialchars(substr($val['text'], 0, 300), ENT_QUOTES); ?></h5>
+                            <h5 class="post-subtitle"><?php echo substr($val['text'], 0, 300); ?></h5>
                         
                         <p class="post-meta">Идентфикатор этого поста <?php echo $val['id']; ?></p>
                     </div>
@@ -33,5 +33,26 @@
                 </div>
             <?php endif; ?>
         </div>
+        <div class="col-lg-4 col-md-10 mx-auto">
+            <table class="table">
+                <th>
+                    <h2>Топ 10 новостей</h2>
+                </th>
+                <?php foreach ($list as $val): ?>
+                <?php if(strtotime(date('Y-m-d'))-strtotime($val['date']) <= 7): ?>
+                <tr>
+                    <td>
+                        <div class="post-preview">
+                        <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
+                            <b class="list-group"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></b>
+                        </a>
+                    </div>
+                    </td>
+                </tr>
+                <?php endif; ?>
+                <?php endforeach; ?>
+            </table>
+        </div>
     </div>
+
 </div>

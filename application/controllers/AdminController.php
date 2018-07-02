@@ -39,9 +39,10 @@ class AdminController extends Controller {
             if(!empty($_FILES['img']['tmp_name'])){
                 $this->model->postUploadImage($_FILES['img']['tmp_name'], $id);
             }
-            $this->view->message('success', 'Пост добавлен!');
+            //$this->view->message('success', 'Пост добавлен!');
+            $this->view->location('new_php_blog/admin/posts');
         }
-	$this->view->render('Добавление новости');
+	    $this->view->render('Добавление новости');
     }
         
     public function editAction() {
@@ -56,12 +57,13 @@ class AdminController extends Controller {
             if(!empty($_FILES['img']['tmp_name'])){
                 $this->model->postUploadImage($_FILES['img']['tmp_name'], $this->route['id']);
             }
-            $this->view->message('success', 'Пост успешно изменен');
+            //$this->view->message('success', 'Пост успешно изменен');
+            $this->view->location('new_php_blog/admin/posts');
         }
         $vars = [
             'data' => $this->model->postData($this->route['id'])[0],
         ];
-	$this->view->render('Изменение поста', $vars);
+	    $this->view->render('Изменение поста', $vars);
     }
         
     public function deleteAction() {
@@ -79,7 +81,7 @@ class AdminController extends Controller {
     
     public function postsAction() {
         $mainModel = new Main;
-        $pagination = new Pagination($this->route, $mainModel->postsCount(), 3);
+        $pagination = new Pagination($this->route, $mainModel->postsCount(), 100);
         $vars = [
               'pagination' => $pagination->get(),
               'list' => $mainModel->postsList($this->route),

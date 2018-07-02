@@ -11,7 +11,7 @@ class Pagination {
     private $total;
     private $limit;
 
-    public function __construct($route, $total, $limit = 10) {
+    public function __construct($route, $total, $limit = 100) {
         $this->route = $route;
         $this->total = $total;
         $this->limit = $limit;
