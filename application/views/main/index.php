@@ -23,8 +23,6 @@
                             <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
                         </a>
                             <h5 class="post-subtitle"><?php echo substr($val['text'], 0, 300); ?></h5>
-                        
-                        <p class="post-meta">Идентфикатор этого поста <?php echo $val['id']; ?></p>
                     </div>
                     <hr>
                 <?php endforeach; ?>
@@ -38,8 +36,9 @@
                 <th>
                     <h2>Топ 10 новостей</h2>
                 </th>
+                <?php $itr_var = 1?>
                 <?php foreach ($list as $val): ?>
-                <?php if(strtotime(date('Y-m-d'))-strtotime($val['date']) <= 7): ?>
+                <?php if (strtotime(date('Y-m-d'))-strtotime($val['date']) <= 604800): ?>
                 <tr>
                     <td>
                         <div class="post-preview">
@@ -49,7 +48,11 @@
                     </div>
                     </td>
                 </tr>
+                <?php $itr_var += 1?>
                 <?php endif; ?>
+                    <?php if($itr_var > 10):?>
+                        <?php break; ?>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </table>
         </div>

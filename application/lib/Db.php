@@ -4,22 +4,21 @@ namespace application\lib;
 
 use PDO;
 
-class Db {
-    
+class Db
+{
     protected $db;
 
-    public function __construct() {
+    public function __construct()
+    {
         $config = require 'application/config/db.php';
-        $this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['name'].';', $config['user'], $config['password']);
+        $this->db = new PDO('mysql:host='.$config['host'].';dbname='.$config['name'].';charset=utf8;', $config['user'], $config['password']);
     }
-    
-    //Return Select zapros
+
     public function query($sql, $params = []){
         $stmt = $this->db->prepare($sql);
-        if(!empty($params))
-        {
+        if (!empty($params)) {
             foreach ($params as $key => $val) {
-                if(is_int($val)){
+                if(is_int($val)) {
                     $type = PDO::PARAM_INT;
                 } else {
                     $type = PDO::PARAM_STR;
@@ -31,19 +30,22 @@ class Db {
         return $stmt;
     }
     
-    //Return spisok stolbcow
-    public function row($sql, $params = []) {
+
+    public function row($sql, $params = [])
+    {
         $result = $this->query($sql, $params);
         return $result->fetchAll(PDO::FETCH_ASSOC);
     }
     
-    //Return stolbec
-    public function column($sql, $params = []) {
+
+    public function column($sql, $params = [])
+    {
         $result = $this->query($sql, $params);
         return $result->fetchColumn();
     }
     
-    public function lastInsertId() {
+    public function lastInsertId()
+    {
         return $this->db->lastInsertId();
     }
 }

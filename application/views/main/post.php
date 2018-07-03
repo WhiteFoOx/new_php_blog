@@ -4,7 +4,6 @@
             <div class="col-lg-8 col-md-10 mx-auto">
                 <div class="page-heading">
                     <h1><?php echo htmlspecialchars($data['name'], ENT_QUOTES); ?></h1>
-                    <span class="subheading"><?php echo htmlspecialchars($data['description'], ENT_QUOTES); ?></span>
                 </div>
             </div>
         </div>

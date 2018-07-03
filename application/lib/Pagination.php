@@ -2,8 +2,8 @@
 
 namespace application\lib;
 
-class Pagination {
-    
+class Pagination
+{
     private $max = 10;
     private $route;
     private $index = '';
@@ -11,7 +11,8 @@ class Pagination {
     private $total;
     private $limit;
 
-    public function __construct($route, $total, $limit = 100) {
+    public function __construct($route, $total, $limit = 100)
+    {
         $this->route = $route;
         $this->total = $total;
         $this->limit = $limit;
@@ -19,7 +20,8 @@ class Pagination {
         $this->setCurrentPage();
     }
    
-    public function get() {
+    public function get()
+    {
         $links = null;
         $limits = $this->limits();
         $html = '<nav><ul class="pagination">';
@@ -42,14 +44,16 @@ class Pagination {
         return $html;
     }
 
-    private function generateHtml($page, $text = null) {
+    private function generateHtml($page, $text = null)
+    {
         if (!$text) {
             $text = $page;
         }
         return '<li class="page-item"><a class="page-link" href="/new_php_blog/'.$this->route['controller'].'/'.$this->route['action'].'/'.$page.'">'.$text.'</a></li>';
     }
 
-    private function limits() {
+    private function limits()
+    {
         $left = $this->current_page - round($this->max / 2);
         $start = $left > 0 ? $left : 1;
         if ($start + $this->max <= $this->amount) {
@@ -62,7 +66,8 @@ class Pagination {
         return array($start, $end);
     }
 
-    private function setCurrentPage() {
+    private function setCurrentPage()
+    {
         if (isset($this->route['page'])) {
             $currentPage = $this->route['page'];
         } else {
@@ -78,7 +83,8 @@ class Pagination {
         }
     }
 
-    private function amount() {
+    private function amount()
+    {
         return ceil($this->total / $this->limit);
     }
 }

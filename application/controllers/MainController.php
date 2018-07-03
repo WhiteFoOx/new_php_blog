@@ -6,10 +6,10 @@ use application\core\Controller;
 use application\lib\Pagination;
 use application\models\Admin;
 
-
-class MainController extends Controller {
-    
-	public function indexAction() {
+class MainController extends Controller
+{
+	public function indexAction()
+    {
             $pagination = new Pagination($this->route, $this->model->postsCount(), 100);
             $vars = [
               'pagination' => $pagination->get(),
@@ -18,7 +18,8 @@ class MainController extends Controller {
 		$this->view->render('Главная страница', $vars);
 	}
                 
-        public function postAction() {
+    public function postAction()
+    {
             $adminModel = new Admin;
             if(!$adminModel->isPostExists($this->route['id'])) {
                 $this->view->errorCode(404);

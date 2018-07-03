@@ -11,10 +11,6 @@
                                 <input class="form-control" type="text" name="name">
                             </div>
                             <div class="form-group">
-                                <label>Описание</label>
-                                <input class="form-control" type="text" name="description">
-                            </div>
-                            <div class="form-group">
                                 <label>Текст</label>
                                 <textarea class="form-control ckeditor" rows="5" name="text"></textarea>
                             </div>
