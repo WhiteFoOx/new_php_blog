@@ -12,7 +12,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Текст</label>
-                                <textarea class="form-control" rows="5" name="text"><?php echo $data['text']; ?></textarea>
+                                <textarea class="form-control ckeditor" rows="5" name="text"><?php echo $data['text']; ?></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Изображение</label>

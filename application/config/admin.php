@@ -1,7 +1,7 @@
 <?php
 
 return [
-  'login' => '',
-  'password' => '',
+  'login' => 'admin',
+  'password' => '12345',
 ];
 

@@ -19,7 +19,8 @@ abstract class Controller
         $this->model = $this->loadModel($route['controller']);
     } 
     
-    public function loadModel($name) {
+    public function loadModel($name)
+    {
         $path = 'application\models\\'.ucfirst($name);
         if (class_exists($path)) {
             return new $path;
@@ -33,11 +34,9 @@ abstract class Controller
             return true;
         } elseif (isset($_SESSION['admin']) and $this->isAcl('admin')) {
             return true;
-        }
-        elseif (!isset($_SESSION['authorize']['id']) and $this->isAcl('guest')) {
+        } elseif (!isset($_SESSION['authorize']['id']) and $this->isAcl('guest')) {
             return true;
-        }
-        elseif (isset($_SESSION['authorize']['id']) and $this->isAcl('authorize')) {
+        } elseif (isset($_SESSION['authorize']['id']) and $this->isAcl('authorize')) {
             return true;
         }
         return false;

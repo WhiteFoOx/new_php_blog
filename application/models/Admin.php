@@ -25,6 +25,9 @@ class Admin extends Model
         if(empty($nameLen)) {
             $this->error = 'Название не должно быть пустым';
             return false;
+        } elseif($textLen < 10 or $textLen > 5000) {
+            $this->error = 'Текст должен содержать от 10 до 5000 символов';
+            return false;
         }
         return true;
     }

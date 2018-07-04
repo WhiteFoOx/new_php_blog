@@ -12,8 +12,8 @@ class MainController extends Controller
     {
             $pagination = new Pagination($this->route, $this->model->postsCount(), 100);
             $vars = [
-              'pagination' => $pagination->get(),
-              'list' => $this->model->postsList($this->route),
+                'pagination' => $pagination->get(),
+                'list' => $this->model->postsList($this->route),
             ];
 		$this->view->render('Главная страница', $vars);
 	}

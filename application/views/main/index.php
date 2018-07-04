@@ -18,11 +18,17 @@
             <?php else: ?>
                 <?php foreach ($list as $val): ?>
                     <div class="post-preview">
-                        <img src='/new_php_blog/public/materials/<?php echo $val['id']; ?>.jpg' width="150" height="100" onerror="this.style.display='none'" alt="Фоточка">
-                        <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
-                            <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
-                        </a>
-                            <h5 class="post-subtitle"><?php echo substr($val['text'], 0, 300); ?></h5>
+                        <div class="row">
+                            <div class="col-2">
+                                <img src='/new_php_blog/public/materials/<?php echo $val['id']; ?>.jpg' class="img-fluid" onerror="this.style.display='none'" alt="Фоточка">
+                            </div>
+                            <div class="col-10">
+                                <a href="/new_php_blog/post/<?php echo $val['id']; ?>">
+                                    <h2 class="post-title"><?php echo htmlspecialchars($val['name'], ENT_QUOTES); ?></h2>
+                                </a>
+                                    <h5 class="post-subtitle"><?php echo mb_substr($val['text'], 0, 300); ?></h5>
+                            </div>
+                        </div>
                     </div>
                     <hr>
                 <?php endforeach; ?>
@@ -30,12 +36,15 @@
                 <?php echo $pagination; ?>
                 </div>
             <?php endif; ?>
+            </div>
+        <div class="col-lg-2 col-md-10 mx-auto">
         </div>
-        <div class="col-lg-4 col-md-10 mx-auto">
+        <div class="col-lg-2 col-md-10 mx-auto">
             <table class="table">
+                <tr>
                 <th>
                     <h2>Топ 10 новостей</h2>
-                </th>
+                </th></tr>
                 <?php $itr_var = 1?>
                 <?php foreach ($list as $val): ?>
                 <?php if (strtotime(date('Y-m-d'))-strtotime($val['date']) <= 604800): ?>
