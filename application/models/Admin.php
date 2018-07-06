@@ -11,7 +11,7 @@ class Admin extends Model
     public function loginValidate($post)
     {
         $config = require 'application/config/admin.php';
-        if($config['login'] != $post['login'] or $config['password'] != $post['password']) {
+        if ($config['login'] != $post['login'] or $config['password'] != $post['password']) {
             $this->error = 'Login or password incorrect';
             return false;
         }
@@ -22,10 +22,10 @@ class Admin extends Model
     {
         $nameLen = iconv_strlen($post['name']);
         $textLen = iconv_strlen($post['text']);
-        if(empty($nameLen)) {
+        if (empty($nameLen)) {
             $this->error = 'Название не должно быть пустым';
             return false;
-        } elseif($textLen < 10 or $textLen > 5000) {
+        } elseif ($textLen < 10 or $textLen > 5000) {
             $this->error = 'Текст должен содержать от 10 до 5000 символов';
             return false;
         }
@@ -77,10 +77,10 @@ class Admin extends Model
     
     public function postEdit($post, $id)
     {
-       $params = [
-          'id' => $id,   
-          'name' => $post['name'],
-          'text' => $post['text'],
+        $params = [
+            'id' => $id,
+            'name' => $post['name'],
+            'text' => $post['text'],
         ];
         $this->db->query('UPDATE posts SET name = :name, text = :text WHERE id = :id', $params);
     }

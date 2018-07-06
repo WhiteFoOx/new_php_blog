@@ -21,7 +21,7 @@ class AdminController extends Controller
         }
 
         if (!empty($_POST)) {
-            if(!$this->model->loginValidate($_POST)) {
+            if (!$this->model->loginValidate($_POST)) {
                 $this->view->message('error', $this->model->error);
             }
 
@@ -41,7 +41,7 @@ class AdminController extends Controller
 
             $id = $this->model->postAdd($_POST);
             if (!$id) {
-               $this->view->message('success', 'Ошибка обработки запроса'); 
+                $this->view->message('success', 'Ошибка обработки запроса');
             }
 
             if (!empty($_FILES['img']['tmp_name'])) {
@@ -49,7 +49,7 @@ class AdminController extends Controller
             }
             $this->view->location('new_php_blog/admin/posts');
         }
-	    $this->view->render('Добавление новости');
+        $this->view->render('Добавление новости');
     }
         
     public function editAction()
@@ -72,7 +72,7 @@ class AdminController extends Controller
         $vars = [
             'data' => $this->model->postData($this->route['id'])[0],
         ];
-	    $this->view->render('Изменение поста', $vars);
+        $this->view->render('Изменение поста', $vars);
     }
         
     public function deleteAction()
@@ -86,7 +86,7 @@ class AdminController extends Controller
         
     public function logoutAction()
     {
-	    unset($_SESSION['admin']);
+        unset($_SESSION['admin']);
         $this->view->redirect('new_php_blog/admin/login');
     }
     
@@ -98,6 +98,6 @@ class AdminController extends Controller
             'pagination' => $pagination->get(),
             'list' => $mainModel->postsList($this->route),
         ];
-	$this->view->render('Посты', $vars);
+        $this->view->render('Посты', $vars);
     }
 }
